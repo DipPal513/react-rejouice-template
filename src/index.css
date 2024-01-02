@@ -1,0 +1,237 @@
+/* tailwind init -- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* basic styles --*/
+
+@font-face {
+  font-family: nb;
+  src: url(../public/font/NBInternationalProBoo.ttf);
+}
+@font-face {
+  font-family: rj;
+  src: url(../public/font/Rejouice-Headline.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: nb;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+/* page style */
+#page1 {
+  overflow: hidden !important;
+}
+#page1,
+#page2 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+#page2 {
+  background: #faf8f3;
+  overflow: hidden;
+  z-index: 222;
+  position: relative;
+}
+
+.big_h1 {
+  font-family: rj;
+  line-height: 30vw;
+}
+.big_h1 span {
+  font-family: rj;
+}
+#cursor {
+  height: 7vw;
+  width: 7vw;
+  background-color: #ff5f38;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 2 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.big_h1 span{
+  display: inline-block;
+
+}
+.blackCursor {
+  height: 7vw;
+  width: 7vw;
+  background-color: #000;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cursor h5 {
+  font-size: 1.3vw;
+}
+#page2 .bottom_content {
+  line-height: 65px;
+}
+
+.work img{
+  transition: .5s ease-in;
+}
+.work:hover img{
+  opacity: 0;
+  
+}
+#page5{
+  height: 100vh;
+  width: 100%;
+
+}
+/* #page5 video{ */
+  /* transform: translate(-50%,-50%); */
+/* } */
+#page5 svg{
+  position: absolute;
+  height: 60%;
+  left: 30%;
+}
+/* --------swiper wrapper----- */
+
+.swiper-wrapper{
+  display: flex;
+  align-items: flex-end;
+}
+/* 
+
+
+*/
+
+
+
+sup { 
+  font-size: 0.5em; 
+}
+a { 
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  text-shadow: -2px -2px 1px #FAF8F3,
+              2px -2px 1px #FAF8F3,
+              2px 2px 1px #FAF8F3,
+              -2px 2px 1px #FAF8F3;
+}
+.is-dark-theme a.text_underline{
+  text-shadow: -2px -2px 1px transparent,
+              2px -2px 1px transparent,
+              2px 2px 1px transparent,
+              -2px 2px 1px transparent;
+}
+a:before,
+a:after  {
+  content: '';
+  display: block;
+  height: 0.05em; width: 100%;
+  background: currentColor;
+  position: absolute;
+  top: 100%; left: 0;
+  margin-top: -0.1em;
+  will-change: transform;
+  transform-origin: 100% 0;
+  z-index: -1;
+}
+
+@media screen and (max-width:600px) {
+  a:before,
+  a:after  {
+      height: 0.035em;
+  }
+}
+
+a:before {
+  transform: scaleX(0) translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.430, 0.195, 0.020, 1.000);
+}
+a:after {
+  transform-origin: 0% 0;
+  transform: scaleX(1) translateZ(0);
+  transition: transform 0.5s 0.1s cubic-bezier(0.430, 0.195, 0.020, 1.000);
+}
+a:hover:before,
+a.hover:before {
+  transform: scaleX(1) translateZ(0);
+  transform-origin: 0% 0;
+  transition: transform 0.5s 0.1s cubic-bezier(0.430, 0.195, 0.020, 1.000);
+}
+a:hover:after,
+a.hover:after {
+  transform: scaleX(0) translateZ(0);
+  transform-origin: 100% 0;
+  transition: transform 0.5s cubic-bezier(0.430, 0.195, 0.020, 1.000);
+}
+sup a:before,
+sup a:after  {
+  display: none;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+/* -------------- */
+
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+
+  line-height: 40px;
+  position: relative;
+}
+.btn-flip:hover:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+.btn-flip:hover:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+}
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+  display: block;
+
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+/* -------------- */
+.footer-nav li:hover svg {
+  transform: rotate(0deg);
+}
