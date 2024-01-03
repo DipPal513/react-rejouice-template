@@ -22,6 +22,7 @@ const App = () => {
   const bottomTextRef = useRef(null);
   const footerContent = useRef(null);
   const navRef = useRef(null);
+  const lineRef = useRef(null);
 
   const handleMouseMove = (e) => {
     gsap.to(cursorRef.current, {
@@ -96,14 +97,18 @@ const App = () => {
     const bottomTxt = bottomTextRef.current;
     const bottomNavWrapper = bottomNavWrapperRef.current;
     const bottomNav = bottomNavRef.current;
+    const line = lineRef.current;
     const bottomTextTL = gsap.timeline({
       scrollTrigger: {
-        trigger: [footerContentRef, bottomNavWrapper],
+        trigger: [footerContentRef, bottomNavWrapper,line],
         // pin: true,
         scrub: 1,
         // markers: true
       },
     });
+    bottomTextTL.from(line,{
+      x:0
+    })
     bottomTextTL.from(bottomTxt, {
       y: -200,
       duration: 1,
@@ -279,7 +284,7 @@ const App = () => {
           </h1>
         </div>
       </div>
-      <div id="page2" className="px-10 py-16">
+      <div id="page2" className="px-4 md:px-10 py-16">
         <div className="flex flex-col">
           <div className="upper_content flex items-center justify-between mb-2">
             <h3 className="text-2xl">
@@ -292,7 +297,7 @@ const App = () => {
         </div>
 
         <div className="bottom_content">
-          <p className="text-6xl font-normal our-text" ref={textRef}>
+          <p className="md:text-6xl text-4xl font-normal our-text" ref={textRef}>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We are a digital brand
             accelerator curating dream teams for dream clients. We design,
             develop, and scale market-defining brands by unlocking their hidden
@@ -305,25 +310,25 @@ const App = () => {
         id="page3"
         className="py-24 h-[90vh] flex items-center justify-center"
       >
-        <div className="">
+        <div className="ps-5 md:ps-0">
           <h4 className="text-lg text-center mb-5 capitalize">
             <span className="">agency and venture</span>
             <button className="ms-2 rounded-xl text-sm bg-black px-2 py-1 text-white">
               models
             </button>
           </h4>
-          <a className="text_underline text-6xl capitalize" href="#">
+          <a className="text_underline text-5xl md:text-6xl capitalize" href="#">
             Explore our services
             <br />& engagement models
           </a>
         </div>
       </div>
-      <div id="page4" className="px-10 pb-24">
+      <div id="page4" className="px-4 md:px-10 pb-24">
         <div className="upper_side flex items-center justify-between mb-5">
           <h2 className="text-2xl">Transforming visions into brands.</h2>
           <h2 className="text-2xl">See the work</h2>
         </div>
-        <div className="page_content flex flex-wrap items-center justify-center gap-x-4  h-full">
+        <div className="page_content flex-col sm:flex md:flex-row items-center justify-center gap-x-4  h-full">
           <div className="work relative">
             <img
               src="https://images.prismic.io/rejouice/d8e1fa1f-4f24-41e1-a249-098c62df5aff_Group+46+%281%29.jpg?auto=compress,format"
@@ -380,73 +385,19 @@ const App = () => {
             loop
             className=""
           ></video>
-          {/* <svg
-            className="abs tl:0 fit transform rotate:-90deg"
-            viewBox="0 0 100 100"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r="49"
-              stroke="#fff"
-              strokeWidth="0.25"
-              fill="none"
-              className="o:0.3 dasharray:302 dashoffset:604 (.in-view):dashoffset:400 (.in-view):tween:all,2.8s,easeOutSlow "
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="49"
-              stroke="#fff"
-              strokeWidth="0.25"
-              fill="none"
-              className="dasharray:302 dashoffset:302 (.in-view):dashoffset:100 (.in-view):tween:all,2.8s,easeOutSlow "
-            />
-          </svg>
-          <svg
-            className="abs tl:0 fit transform rotate:0 (.in-view):rotate:237deg (.in-view):tween:all,2.8s,easeOutSlow "
-            viewBox="0 0 100 100"
-          >
-            <circle cx="50" cy="1" r="1" fill="#fff"></circle>
-          </svg> */}
-          {/* <div className="abs tl:0 fit flex items:center justify:center">
-            <div className="rel align-x:center">
-              <div className="(&amp;//*):fs:62fx (&amp;//*):fs:28fx@m (&amp;//*):lh:1.07 (&amp;//*):letter:-1px flex items:center justify:center">
-                <roll-number
-                  number="$$2$$"
-                  from="5"
-                  number-class="fs:62fx fs:28fx@m"
-                  has-rendered=""
-                >
-                  <div style={{ fontSize: "0" }}>
-                    <span className="rel mask inline-block">
-                      <span className="inline-block o:0 $$0$$ fs:62fx fs:28fx@m">
-                        0
-                      </span>
-                      <span
-                        className="inline-block abs tl:0 l:50% align:center $$0$$ fs:62fx fs:28fx@m"
-                        style={{
-                          letterSpacing: "normal",
-                          transform:
-                            "translate(-50%, 117.557%) translateZ(0px)",
-                          opacity: "1",
-                        }}
-                      >
-                        <span>0</span>
-                      </span>
-                      {/* Add the rest of your spans here */}
-          {/*  */}
+   
         </div>
       </div>
       <div id="page6" className="h-[100vh] py-10 w-full">
-        <div className="slider_header w-[95%] mx-auto">
+        <div className="slider_header w-[95%] mx-auto px-5 md:px-0">
           <h1
-            className="text-9xl mb-5"
+            className="md:text-9xl text-6xl mb-5"
             style={{ fontFamily: "rj", fontWeight: 500 }}
           >
             Get in touch.
           </h1>
-          <hr className="mb-7" />
+          <hr className="mb-7"
+          ref={lineRef} />
         </div>
         <div className="slider_">
           <Swiper
@@ -597,7 +548,7 @@ const App = () => {
       </div>
       <div
         id="page9"
-        className="h-[40vh] bg-black text-white  w-full overflow-hidden pb-2 mx-auto text-center "
+        className="h-[50vh] bg-black text-white  w-full overflow-hidden pb-2 mx-auto text-center "
         ref={footerContent}
       >
         <h1
