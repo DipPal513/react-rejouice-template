@@ -131,25 +131,25 @@ const App = () => {
   useEffect(() => {
     const el = navRef.current;
 
-    isNav ?
-      gsap.fromTo(
-        el,
-        {
-          y: -1000,
-        },
-        {
-          y: 0,
-        }
-      ): gsap.fromTo(
-        el,
-        {
-          y: 0,
-        },
-        {
-          y: -1100,
-        }
-      );
-
+    isNav
+      ? gsap.fromTo(
+          el,
+          {
+            y: -1000,
+          },
+          {
+            y: 0,
+          }
+        )
+      : gsap.fromTo(
+          el,
+          {
+            y: 0,
+          },
+          {
+            y: -1100,
+          }
+        );
   }, [isNav]);
   return (
     <main>
@@ -216,21 +216,31 @@ const App = () => {
                 </button>
               </div>
               <ul className="middle_menu text-left w-full text-black">
-                <li className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1" data-front="Home" data-back="Home">
-                  
-                </li>
-                <li className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"data-front="Work" data-back="Work">
-                
-                </li>
-                <li className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"data-front="About" data-back="About">
-                  
-                </li>
-                <li className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"data-front="Service" data-back="Service">
-                  
-                </li>
-                <li className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"data-front="Contact" data-back="Contact">
-                  
-                  </li>
+                <li
+                  className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"
+                  data-front="Home"
+                  data-back="Home"
+                ></li>
+                <li
+                  className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"
+                  data-front="Work"
+                  data-back="Work"
+                ></li>
+                <li
+                  className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"
+                  data-front="About"
+                  data-back="About"
+                ></li>
+                <li
+                  className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"
+                  data-front="Service"
+                  data-back="Service"
+                ></li>
+                <li
+                  className="btn-flip capitalize text-5xl hover:underline duration-400 cursor-pointer mb-1"
+                  data-front="Contact"
+                  data-back="Contact"
+                ></li>
               </ul>
               <ul className="footer-nav w-full text-left">
                 <li className="flex items-center text-black text-xl cursor-pointer">
